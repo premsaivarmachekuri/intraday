@@ -1,0 +1,14 @@
+{
+  "userIgnoreFilters": ["raw/"],
+  "legacyEditor": false,
+  "livePreview": true,
+  "defaultViewMode": "preview",
+  "newFileLocation": "root",
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": true,
+  "showLineNumber": true,
+  "spellcheck": false,
+  "strictLineBreaks": false,
+  "foldIndent": true,
+  "showFrontmatter": false
+}

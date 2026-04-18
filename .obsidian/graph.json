@@ -1,0 +1,35 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:wiki/pioneers",
+      "color": { "a": 1, "rgb": 14369280 }
+    },
+    {
+      "query": "path:wiki/concepts",
+      "color": { "a": 1, "rgb": 3394815 }
+    },
+    {
+      "query": "path:wiki/models",
+      "color": { "a": 1, "rgb": 16744272 }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1,
+  "close": false
+}
