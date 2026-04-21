@@ -4,6 +4,18 @@ Append-only. Format: `## [YYYY-MM-DD] type | title`
 
 ---
 
+## [2026-04-21] ingest | Jim Simons — Twelve Decision Frameworks (public interviews synthesis)
+- Source: `raw/jim-simons-models.md` — twelve named frameworks from Simons' public statements and methodological principles
+- **Four new elements added** to `wiki/pioneers/jim-simons.md`:
+  - Core Philosophy: added "pile them up / layer and layer" signal-stacking quote (Simons, confirmed)
+  - Core Philosophy: added "be guided by beauty" elegance-as-validity principle (Simons, confirmed)
+  - Pattern-Recognition Rules: added Rule #11 — Elegance as a validity filter (Beauty as a Signal)
+  - Money Management: added Volatility Protocol — reduce position size, keep strategy (2008 +82% example)
+  - Emotional/Psychological Framework: added "Failures are experiments, not defeats" — post-mortem rule-building
+  - Sources: added `raw/jim-simons-models.md` as secondary source
+- **Created** `wiki/models/simons-decision-protocol.md` — twelve-lens decision framework synthesising all core Simons principles into a sequential analytical process with pass/fail decision rules and five worked examples
+- Updated `wiki/index.md`: Simons Decision Protocol row added to Models table
+
 ## [2026-04-18] models | The Man Who Solved the Market (Zuckerman, 2019) — Model pages built
 - Created `wiki/models/quantitative-signal-pipeline.md` — five-stage signal discovery, validation, combination, and decay-management process
 - Created `wiki/models/mean-reversion-at-speed.md` — intraday/multi-day mean reversion model with asset-class serial correlation thresholds, 51% insight, five-minute bar analysis

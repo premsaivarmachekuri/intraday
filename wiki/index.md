@@ -36,3 +36,4 @@
 | [Quantitative Signal Pipeline](models/quantitative-signal-pipeline.md) | Five-stage process: collect → discover → validate → combine → monitor (Renaissance) |
 | [Mean Reversion at Speed](models/mean-reversion-at-speed.md) | Exploiting short-horizon price reversion with fractional edge at high volume (Renaissance / Berlekamp) |
 | [Regime-Aware Signal Weighting](models/regime-aware-signal-weighting.md) | Using Hidden Markov Models to infer market state and adjust signal weights dynamically (Renaissance) |
+| [Simons Decision Protocol](models/simons-decision-protocol.md) | Twelve-lens decision framework synthesising all core Simons principles: Data First → 51% Edge → Layer Signals → Never Override → Beauty → Synthesis |

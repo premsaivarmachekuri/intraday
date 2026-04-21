@@ -18,6 +18,8 @@ The Medallion Fund, launched in 1988, became the greatest money-making machine i
 - Human intuition and emotion are liabilities. The edge comes from eliminating them entirely. *"The only rule is that we never override the computer."*
 - You don't need to be right most of the time — a **50.75% win rate** across hundreds of thousands of trades at scale produces enormous returns. *"If you trade a lot, you only need to be right 51 percent of the time. We need a smaller edge on each trade."* — Berlekamp
 - Start with data, not theory. *"We don't start with models. We start with data. We don't have any preconceived notions. We look for things that can be replicated thousands of times."*
+- Signal stacking amplifies weak edges. *"Many of the anomalies we initially exploited are intact, though they have weakened some. What you need to do is pile them up. You need to build a system that is layered and layered."* — Simons. No single signal is sufficient; the power is in combining hundreds of partially-correlated weak signals into one robust prediction.
+- Elegance signals correctness. *"Be guided by beauty. Just as a great theorem can be very beautiful, a company that's really working very well, very efficiently, can be beautiful."* — Simons. A parsimonious model that fits cleanly is more likely to survive out-of-sample than a complex one that requires special-casing.
 - What you're really modelling is **human behaviour**: *"Humans are most predictable in times of high stress — they act instinctively and panic. Our entire premise was that human actors will react the way humans did in the past… we learned to take advantage."* — Nick Penavic, researcher
 - Diversification of signals matters as much as the quality of any single signal.
 
@@ -38,6 +40,7 @@ The Medallion Fund, launched in 1988, became the greatest money-making machine i
 8. **Hidden-state regime detection**: The Baum-Welch algorithm (Hidden Markov Models) — applied originally to price series by Baum at the IDA, and independently brought from IBM speech recognition by Brown and Mercer — infers unobservable market "states." Regime-aware positioning adjusts signal weights by detected state. *confirmed (Baum's direct role documented in Zuckerman)*
 9. **Relative, not absolute, price prediction**: Renaissance primarily predicts **stock moves relative to other stocks, to an index, to a factor model, or to an industry** — not the absolute direction of markets. This makes the system nearly market-neutral and resilient to macro surprises. *confirmed*
 10. **Multidimensional anomalies**: Complex statistical relationships across *multiple* stocks/factors simultaneously — not simple pairs trades. *"These relationships have to exist since companies are interconnected in complex ways. RenTec has built a machine to model this interconnectedness, track its behaviour over time, and bet on when prices seem out of whack."* — former Renaissance executive *confirmed*
+11. **Elegance as a validity filter** (*"Beauty as a Signal"*): *"Be guided by beauty. Just as a great theorem can be very beautiful, a company that's really working very well, very efficiently, can be beautiful."* — Simons. A signal model that requires excessive patching, workarounds, or special-case rules is a warning sign. Elegant, parsimonious models generalise better out-of-sample than over-engineered constructs with many free parameters. *inferred (direct quote confirmed)*
 
 ## Mathematical / Quantitative Models
 | Model / Tool | Role |
@@ -101,6 +104,7 @@ Intraday granularity matters: Medallion dispatched orders **16 times per day** (
 - **Extreme diversification**: 4,000+ simultaneous positions mean idiosyncratic risk is nearly fully diversified away; portfolio variance is dominated by systematic (market) risk, which is also hedged via short book.
 - **Market-neutral construction**: roughly equal long and short exposure neutralises broad market beta; alpha comes from the spread, not the direction.
 - **Leverage is a dial, not a binary**: leverage is increased in high-confidence, high-liquidity conditions and reduced in stressed or illiquid markets.
+- **Volatility protocol — reduce, don't panic**: during turbulent or unclear market regimes, Medallion did not change strategy or liquidate — it automatically **reduced position sizes** across the board. Same signals, smaller bets, until clarity returned. Changing strategy during chaos is the most expensive form of override. *confirmed (2008: up 82% while reducing exposure)*
 - **Capacity discipline**: Laufer's models measured Medallion's own market impact with "surprising precision." The fund was capped at $280M in 1993 to protect returns. Growth only came later by expanding into equities — a deeper, more liquid market.
 - **No investor withdrawals from Medallion**: from 1993, outside capital was returned; the fund traded only partners' money, eliminating redemption risk that forces liquidations at the worst time.
 - **Fees as alignment**: 5% management + 44% performance fee ensured only genuinely excellent years were profitable for the firm — no incentive to gather assets.
@@ -111,6 +115,7 @@ Intraday granularity matters: Medallion dispatched orders **16 times per day** (
 - **Collaborative culture suppresses ego.** Renaissance operated as an academic lab — ideas were debated, models were peer-reviewed, and no individual "star trader" could override the system.
 - **Secrecy preserves the edge.** Every employee signed lifetime non-disclosure agreements. *"At the NSA, the penalty for leaking is twenty-five years in prison. Unfortunately, all we can do is fire you."* — Simons to employees
 - **Long-term thinking about model health.** Simons frequently resisted short-term optimisations that would overfit models to recent data, sacrificing near-term performance to preserve long-run robustness.
+- **Failures are experiments, not defeats.** Every losing trade or failed model is data: what was the hypothesis? where did the model break — bad data, bad assumptions, bad execution, or bad timing? What specific rule prevents recurrence? Simons institutionalised post-mortem analysis and converted each failure into a model constraint, not an emotional scar. *inferred*
 - **Narratives are dangerous.** *"Any time you hear financial experts talking about how the market went up because of such and such — remember it's all nonsense."* — Peter Brown. If stocks would have numbers, not names, Berlekamp argued, investors would make better decisions.
 
 ## Tactical Edge (Summary)
@@ -130,5 +135,8 @@ Intraday granularity matters: Medallion dispatched orders **16 times per day** (
 - [Multi-Timeframe Confluence](../models/multi-timeframe-confluence.md) — Simons' regime detection is an algorithmic version of multi-timeframe context
 - [Position Sizing & Probe System](../models/position-sizing.md) — fractional Kelly underpins Renaissance's sizing logic
 
+- [Simons Decision Protocol](../models/simons-decision-protocol.md) — twelve-lens framework synthesising all core Simons principles into an actionable decision process
+
 ## Sources
 - Zuckerman, Gregory. *The Man Who Solved the Market: How Jim Simons Launched the Quant Revolution*. Portfolio/Penguin, 2019. `raw/themanwhosolvedthemarket.pdf` **[primary]**
+- Simons public interviews and frameworks (2019–2024) — includes "Beauty as Signal," "Layer the Signals," "Failure as Data," and "Reduce Position" principles `raw/jim-simons-models.md`
