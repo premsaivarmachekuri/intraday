@@ -1,0 +1,61 @@
+name: Daily Pre-Market Scan
+
+on:
+  schedule:
+    - cron: '0 3 * * 1-5'   # 3:00 AM UTC = 8:30 AM IST, weekdays only
+  workflow_dispatch:           # allow manual trigger for testing
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: pipeline/package-lock.json
+
+      - name: Install Node.js dependencies
+        working-directory: pipeline
+        run: npm ci
+
+      - name: Fetch market data from TradingView
+        working-directory: pipeline
+        env:
+          TV_USERNAME: ${{ secrets.TV_USERNAME }}
+          TV_PASSWORD: ${{ secrets.TV_PASSWORD }}
+          DB_PATH: data/market.db
+        run: node main.js
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: pipeline/requirements.txt
+
+      - name: Install Python dependencies
+        working-directory: pipeline
+        run: pip install -r requirements.txt
+
+      - name: Run signal engine and send Telegram report
+        working-directory: pipeline
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DB_PATH: data/market.db
+        run: python main.py
+
+      - name: Upload market database as artifact (7-day retention)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-db-${{ github.run_id }}
+          path: pipeline/data/market.db
+          retention-days: 7

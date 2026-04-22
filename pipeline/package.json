@@ -1,0 +1,15 @@
+{
+  "name": "trading-pipeline",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "fetch": "node main.js",
+    "test-fetch": "node main.js --limit 5"
+  },
+  "dependencies": {
+    "@mathieuc/tradingview": "github:Mathieu2301/TradingView-API",
+    "sql.js": "^1.12.0",
+    "csv-parse": "^5.5.3",
+    "dotenv": "^16.4.5"
+  }
+}

@@ -4,7 +4,13 @@
       "Bash(where python *)",
       "Bash(python -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
       "Bash(python -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")",
-      "Bash(python -c \"import fitz; print\\('fitz ok'\\)\")"
+      "Bash(python -c \"import fitz; print\\('fitz ok'\\)\")",
+      "Bash(npm install *)",
+      "Bash(pip install *)",
+      "Bash(python -c ' *)",
+      "Bash(node main.js --limit 3)",
+      "Bash(python main.py)",
+      "Bash(python -c \"import yaml; yaml.safe_load\\(open\\('.github/workflows/daily-scan.yml'\\)\\); print\\('YAML valid'\\)\")"
     ]
   }
 }
